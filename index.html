@@ -1329,6 +1329,375 @@ button:focus-visible,
 }
 
 
+/* ==========================================
+   MY UNIVERSE — FUTURISTIC EXPLORER THEME
+   ========================================== */
+
+:root {
+  --fx-bg: #070914;
+  --fx-panel: #11162a;
+  --fx-panel-light: #191e38;
+  --fx-cyan: #68efff;
+  --fx-blue: #6b9dff;
+  --fx-violet: #b69aff;
+  --fx-pink: #ff8fdf;
+  --fx-text: #f4f5ff;
+  --fx-muted: #a5aecb;
+  --fx-border: rgba(148, 164, 255, .20);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 75px;
+}
+
+body {
+  color: var(--fx-text);
+  background-color: var(--fx-bg);
+  background-image:
+    radial-gradient(ellipse at 10% 12%,
+      rgba(117, 65, 220, .22), transparent 36%),
+    radial-gradient(ellipse at 92% 34%,
+      rgba(0, 190, 230, .12), transparent 32%),
+    radial-gradient(ellipse at 42% 72%,
+      rgba(210, 68, 200, .07), transparent 34%);
+  overflow-x: clip;
+}
+
+body, button, input, textarea, select {
+  font-family: inherit;
+}
+
+::selection {
+  color: #fff;
+  background: #7958da;
+}
+
+/* Typography */
+
+h1 {
+  color: #f7f5ff;
+  background: linear-gradient(
+    110deg, #ffffff 4%, #c4b5fd 38%,
+    #78eaff 72%, #f4a7ff 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-wrap: balance;
+}
+
+h2, h3 {
+  color: #f2f1ff;
+  text-wrap: balance;
+}
+
+p {
+  line-height: 1.8;
+}
+
+.section-intro {
+  color: var(--fx-muted);
+  max-width: 700px;
+}
+
+/* Navigation: enhance existing header */
+
+header, nav {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+header {
+  border-bottom: 1px solid var(--fx-border);
+}
+
+nav a {
+  transition: color .2s ease, opacity .2s ease;
+}
+
+nav a:hover {
+  color: var(--fx-cyan);
+}
+
+/* Section labels */
+
+.tag {
+  border: 1px solid rgba(182, 154, 255, .34);
+  border-radius: 999px;
+  background: linear-gradient(
+    110deg,
+    rgba(139, 92, 246, .17),
+    rgba(104, 239, 255, .07)
+  );
+  color: #d8d0ff;
+  letter-spacing: .12em;
+  padding: 7px 12px;
+}
+
+/* Section rhythm */
+
+.section {
+  position: relative;
+  padding-top: clamp(44px, 7vw, 82px);
+  padding-bottom: clamp(36px, 6vw, 64px);
+}
+
+.section h2::after {
+  content: "";
+  display: block;
+  width: 54px;
+  height: 3px;
+  margin-top: 11px;
+  border-radius: 20px;
+  background: linear-gradient(
+    90deg, var(--fx-violet), var(--fx-cyan), var(--fx-pink)
+  );
+  box-shadow: 0 0 16px rgba(104, 239, 255, .28);
+}
+
+/* Discovery cards — common existing class names */
+
+.object-card,
+.discovery-card,
+.planet-card,
+.feature-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--fx-border);
+  border-radius: 17px;
+  background: linear-gradient(
+    145deg, rgba(25, 29, 55, .97),
+    rgba(12, 15, 32, .98)
+  );
+  box-shadow: 0 8px 28px rgba(0, 0, 0, .19);
+  transition:
+    transform .22s ease,
+    border-color .22s ease,
+    box-shadow .22s ease;
+}
+
+.object-card::before,
+.discovery-card::before,
+.planet-card::before,
+.feature-card::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg, var(--fx-violet), var(--fx-cyan), var(--fx-pink)
+  );
+  opacity: .72;
+}
+
+.object-card:hover,
+.discovery-card:hover,
+.planet-card:hover,
+.feature-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(104, 239, 255, .53);
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, .30),
+    0 0 22px rgba(104, 239, 255, .07);
+}
+
+/* Card images */
+
+.object-card img,
+.discovery-card img,
+.planet-card img,
+.feature-card img {
+  transition: transform .35s ease, filter .35s ease;
+}
+
+.object-card:hover img,
+.discovery-card:hover img,
+.planet-card:hover img,
+.feature-card:hover img {
+  transform: scale(1.035);
+  filter: saturate(1.12) brightness(1.04);
+}
+
+/* Search */
+
+input[type="search"],
+input[type="text"],
+input[type="email"],
+textarea,
+select {
+  max-width: 100%;
+  color: var(--fx-text);
+  background: rgba(17, 20, 42, .95);
+  border: 1px solid rgba(153, 166, 220, .24);
+  border-radius: 12px;
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #8d96b7;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--fx-cyan);
+  box-shadow: 0 0 0 3px rgba(104, 239, 255, .12);
+}
+
+/* Buttons */
+
+button, .button, .btn {
+  transition:
+    transform .18s ease,
+    filter .18s ease,
+    box-shadow .18s ease;
+}
+
+button:hover, .button:hover, .btn:hover {
+  filter: brightness(1.12);
+}
+
+button:active, .button:active, .btn:active {
+  transform: scale(.97);
+}
+
+/* Category filter buttons */
+
+button[aria-pressed="true"],
+.filter-btn.active,
+.category-btn.active {
+  color: #090c1c;
+  background: linear-gradient(110deg, #b9a1ff, #70efff);
+  border-color: transparent;
+}
+
+/* 3D solar system — retain existing Three.js canvas */
+
+.three-d-shell {
+  overflow: hidden;
+  border: 1px solid rgba(150, 139, 255, .36);
+  border-radius: 18px;
+  background: #060814;
+  box-shadow:
+    0 18px 55px rgba(0, 0, 0, .3),
+    0 0 28px rgba(110, 113, 255, .08);
+}
+
+#solar3DCanvas {
+  background:
+    radial-gradient(ellipse at 50% 44%,
+      #252044 0%, #101329 42%, #03040b 80%);
+}
+
+#threeDReset {
+  color: #f5f2ff;
+  background: linear-gradient(120deg, #30214f, #142a43);
+  border: 1px solid rgba(182, 154, 255, .38);
+  border-radius: 9px;
+}
+
+/* Footer */
+
+.universe-footer {
+  border-top: 1px solid var(--fx-border);
+  background: linear-gradient(180deg, #090b19, #111027);
+}
+
+.universe-footer strong {
+  color: #e1d6ff;
+}
+
+/* Keyboard accessibility */
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--fx-cyan);
+  outline-offset: 3px;
+}
+
+/* Mobile tuning */
+
+@media (max-width: 600px) {
+  .section {
+    padding-top: 40px;
+    padding-bottom: 34px;
+  }
+
+  .object-card,
+  .discovery-card,
+  .planet-card,
+  .feature-card {
+    border-radius: 14px;
+  }
+
+  .object-card:hover,
+  .discovery-card:hover,
+  .planet-card:hover,
+  .feature-card:hover {
+    transform: none;
+  }
+
+  #solar3DCanvas {
+    height: 350px;
+  }
+
+  button, .button, .btn {
+    min-height: 40px;
+  }
+}
+
+/* Respect reduced-motion settings */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+}
+
+
+/* More comfortable mobile navigation */
+nav a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 36px;
+  padding: 6px 9px;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+nav a:hover,
+nav a:focus-visible {
+  background: rgba(167, 139, 250, .12);
+  color: #68efff;
+}
+
+@media (max-width: 600px) {
+  nav {
+    gap: 4px;
+  }
+
+  nav a {
+    padding: 6px;
+    font-size: 11px;
+  }
+}
+
   </style>
 </head>
 <body>
@@ -2465,6 +2834,124 @@ if (container && status && resetButton) {
     requestAnimationFrame(animate);
   }
 }
+</script>
+
+
+
+<!-- Reading progress indicator -->
+<div id="cosmicProgress" aria-hidden="true"></div>
+
+<!-- Back to top -->
+<button
+  id="cosmicTop"
+  type="button"
+  aria-label="Back to top"
+  title="Back to top"
+>
+  ↑
+</button>
+
+<style>
+  #cosmicProgress {
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    pointer-events: none;
+    background: linear-gradient(
+      90deg, #a78bfa, #68efff, #ff8fdf
+    );
+    box-shadow: 0 0 12px #68efff66;
+  }
+
+  #cosmicTop {
+    position: fixed;
+    z-index: 9998;
+    right: 17px;
+    bottom: 26px;
+    width: 46px;
+    height: 46px;
+    min-height: 46px;
+    display: grid;
+    place-items: center;
+    border: 1px solid #9b8bff88;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #8d6cff, #36cde7);
+    color: #080b1a;
+    font-size: 23px;
+    font-weight: 800;
+    box-shadow: 0 5px 25px #7058ff40;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity .2s ease, transform .2s ease,
+      visibility .2s ease;
+    cursor: pointer;
+  }
+
+  #cosmicTop.is-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  @media (max-width: 600px) {
+    #cosmicTop {
+      right: 12px;
+      bottom: 20px;
+      width: 43px;
+      height: 43px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #cosmicTop {
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+(function () {
+  const progress = document.getElementById("cosmicProgress");
+  const topButton = document.getElementById("cosmicTop");
+
+  if (!progress || !topButton) return;
+
+  let scheduled = false;
+
+  function updateCosmicUI() {
+    const root = document.documentElement;
+    const maxScroll = root.scrollHeight - window.innerHeight;
+    const percentage = maxScroll > 0
+      ? (window.scrollY / maxScroll) * 100
+      : 0;
+
+    progress.style.width = percentage + "%";
+    topButton.classList.toggle("is-visible", window.scrollY > 400);
+    scheduled = false;
+  }
+
+  window.addEventListener("scroll", function () {
+    if (!scheduled) {
+      scheduled = true;
+      window.requestAnimationFrame(updateCosmicUI);
+    }
+  }, { passive: true });
+
+  topButton.addEventListener("click", function () {
+    window.scrollTo({
+      top: 0,
+      behavior: window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches ? "auto" : "smooth"
+    });
+  });
+
+  updateCosmicUI();
+})();
 </script>
 
 </body>
