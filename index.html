@@ -8,50 +8,14 @@
   <meta name="description" content="Explore planets, stars, galaxies and the mysteries of our universe.">
   <title>My Universe | Explore the Cosmos</title>
   <style>
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{margin:0;background:#080a14;color:#f4f3ff;font-family:Arial,sans-serif}
-    a{color:inherit;text-decoration:none}
-    button,input{font:inherit}
-    .nav{display:flex;justify-content:space-between;align-items:center;gap:15px;padding:20px 7%;border-bottom:1px solid #24263a}
-    .logo{font-size:19px;font-weight:bold;letter-spacing:2px;color:#c4b5fd}
-    .links{display:flex;gap:18px;font-size:13px;color:#c2c3d5}
-    .hero{padding:80px 8%;min-height:440px;background:radial-gradient(ellipse at 80% 40%,#4c328a66,transparent 45%),radial-gradient(ellipse at 20% 80%,#153b7066,transparent 45%)}
-    .tag{color:#b9a4ff;font-size:11px;letter-spacing:2px;font-weight:bold}
-    h1{font-size:clamp(42px,8vw,76px);line-height:1.05;letter-spacing:-2px;margin:22px 0}
-    h1 span{color:#b9a4ff}
-    .hero p,.section-intro{color:#b5b7cd;line-height:1.8;max-width:550px}
-    .btn{display:inline-block;background:#b9a4ff;color:#110b20;padding:13px 18px;border:0;border-radius:8px;font-weight:bold;cursor:pointer;margin-top:12px}
-    .section{padding:60px 7%;max-width:1200px;margin:auto}
-    h2{font-size:32px;margin:12px 0}
-    .search{width:100%;padding:15px;border-radius:9px;border:1px solid #30314a;background:#121527;color:white;margin:20px 0}
-    .filters{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:25px}
-    .filter{padding:9px 14px;border:1px solid #34344b;border-radius:30px;background:transparent;color:#d3d2e6;cursor:pointer}
-    .filter.active{background:#b9a4ff;color:#130c20}
-    .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
-    .card{background:#121527;border:1px solid #292b43;border-radius:12px;overflow:hidden}
-    .card img{width:100%;height:170px;object-fit:cover;background:#17182c}
-    .content{padding:18px}
-    .type{font-size:12px;color:#c4b5fd}
-    h3{font-size:22px;margin:12px 0}
-    .content p{font-size:14px;line-height:1.7;color:#b5b7cd}
-    .more{background:none;border:0;color:#c4b5fd;font-weight:bold;padding:8px 0;cursor:pointer}
-    .discovery{text-align:center;background:radial-gradient(ellipse at center,#35245488,transparent 70%)}
-    .discovery p{max-width:600px;margin:20px auto;color:#b5b7cd;line-height:1.8}
-    .fact{margin:25px auto 0;max-width:650px;border:1px solid #34304e;background:#141528;border-radius:14px;padding:28px}
-    .fact p{font-size:20px;line-height:1.7}
-    footer{text-align:center;padding:35px 15px;border-top:1px solid #292b43;color:#b5b7cd;font-size:13px}
-    .modal{display:none;position:fixed;inset:0;background:#000d;z-index:5;align-items:center;justify-content:center;padding:20px}
-    .modal.show{display:flex}
-    .modal-box{position:relative;background:#15172a;border:1px solid #44405e;border-radius:14px;padding:24px;max-width:500px;width:100%;max-height:85vh;overflow:auto}
-    .modal-box img{width:100%;max-height:240px;object-fit:cover;border-radius:8px}
-    .close{position:absolute;right:18px;top:18px;background:#080a14;color:white;border:0;padding:10px;border-radius:8px;cursor:pointer}
-    #detailText{color:#c2c3d5;line-height:1.8}
-    @media(max-width:700px){.nav{align-items:flex-start;flex-direction:column}.links{flex-wrap:wrap;gap:14px}.hero{padding:60px 7%}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.card img{height:140px}}
-    @media(max-width:450px){.grid{grid-template-columns:1fr}.card img{height:200px}.section{padding:45px 5%}h2{font-size:28px}}
+    
+  
 
+/* ===== MY UNIVERSE: COMPLETE COSMIC STYLES ===== */
 
-/* ===== MY UNIVERSE: COSMIC MOTION UPGRADE ===== */
+* {
+  box-sizing: border-box;
+}
 
 html {
   background: #080a14;
@@ -61,13 +25,32 @@ html {
 body {
   position: relative;
   isolation: isolate;
+  margin: 0;
+  min-width: 320px;
   background:
     radial-gradient(ellipse at 15% 20%, #32205b35, transparent 45%),
     radial-gradient(ellipse at 85% 60%, #153c6c30, transparent 45%),
     #080a14;
+  color: #f4f3ff;
+  font-family: Arial, sans-serif;
 }
 
-/* Animated starfield */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ===== ANIMATED STARFIELD ===== */
+
 body::before {
   content: "";
   position: fixed;
@@ -81,10 +64,16 @@ body::before {
     radial-gradient(2px 2px at 90% 80%, #93c5fdcc 99%, transparent),
     radial-gradient(1px 1px at 50% 45%, #ffffffcc 99%, transparent),
     radial-gradient(1px 1px at 20% 85%, #c4b5fdcc 99%, transparent);
-  background-size: 260px 260px, 340px 340px, 210px 210px,
-    300px 300px, 180px 180px, 250px 250px;
-  animation: starDrift 80s linear infinite,
-             starTwinkle 4s ease-in-out infinite alternate;
+  background-size:
+    260px 260px,
+    340px 340px,
+    210px 210px,
+    300px 300px,
+    180px 180px,
+    250px 250px;
+  animation:
+    starDrift 80s linear infinite,
+    starTwinkle 4s ease-in-out infinite alternate;
 }
 
 @keyframes starDrift {
@@ -93,11 +82,12 @@ body::before {
 }
 
 @keyframes starTwinkle {
-  from { opacity: .45; }
+  from { opacity: 0.45; }
   to { opacity: 1; }
 }
 
-/* Shooting star */
+/* ===== SHOOTING STAR ===== */
+
 body::after {
   content: "";
   position: fixed;
@@ -126,39 +116,99 @@ body::after {
   }
 }
 
-/* Cinematic hero entrance */
+/* ===== NAVIGATION ===== */
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding: 20px 7%;
+  border-bottom: 1px solid #24263a;
+}
+
+.logo {
+  font-size: 19px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: #c4b5fd;
+}
+
+.links {
+  display: flex;
+  gap: 18px;
+  font-size: 13px;
+  color: #c2c3d5;
+}
+
+.links a:hover {
+  color: #ffffff;
+}
+
+/* ===== HERO ===== */
+
+.hero {
+  padding: 80px 8%;
+  min-height: 440px;
+  background:
+    radial-gradient(ellipse at 80% 40%, #4c328a66, transparent 45%),
+    radial-gradient(ellipse at 20% 80%, #153b7066, transparent 45%);
+}
+
+.tag {
+  color: #b9a4ff;
+  font-size: 11px;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+h1 {
+  font-size: clamp(42px, 8vw, 76px);
+  line-height: 1.05;
+  letter-spacing: -2px;
+  margin: 22px 0;
+}
+
+h1 span {
+  color: #b9a4ff;
+}
+
+.hero p,
+.section-intro {
+  color: #b5b7cd;
+  line-height: 1.8;
+  max-width: 550px;
+}
+
 .hero .tag {
-  animation: fadeUp .9s ease both;
+  animation: fadeUp 0.9s ease both;
 }
 
 .hero h1 {
-  animation: fadeUp 1s .12s ease both;
+  animation: fadeUp 1s 0.12s ease both;
 }
 
 .hero > p {
-  animation: fadeUp 1s .25s ease both;
+  animation: fadeUp 1s 0.25s ease both;
 }
 
-.hero .btn {
-  animation: fadeUp 1s .4s ease both;
-}
+/* ===== BUTTONS ===== */
 
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(24px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Glowing buttons */
 .btn {
-  box-shadow: 0 0 0 rgba(185, 164, 255, 0);
-  transition: transform .3s ease, box-shadow .3s ease,
-              background .3s ease;
+  display: inline-block;
+  background: #b9a4ff;
+  color: #110b20;
+  padding: 13px 18px;
+  border: 0;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 12px;
+  box-shadow: 0 0 0 #a78bfa00;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease;
 }
 
 .btn:hover {
@@ -168,19 +218,108 @@ body::after {
 }
 
 .btn:active {
-  transform: scale(.97);
+  transform: scale(0.97);
 }
 
-/* Floating, glowing discovery cards */
+/* ===== GENERAL SECTIONS ===== */
+
+.section {
+  padding: 60px 7%;
+  max-width: 1200px;
+  margin: auto;
+  scroll-margin-top: 20px;
+}
+
+h2 {
+  font-size: 32px;
+  margin: 12px 0;
+}
+
+/* ===== SEARCH ===== */
+
+.search {
+  width: 100%;
+  padding: 15px;
+  border-radius: 9px;
+  border: 1px solid #30314a;
+  background: #121527;
+  color: white;
+  margin: 20px 0;
+}
+
+.search::placeholder {
+  color: #9296b0;
+}
+
+.search:focus {
+  outline: 2px solid #a78bfa;
+  outline-offset: 2px;
+}
+
+/* ===== CATEGORY FILTERS ===== */
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-bottom: 25px;
+}
+
+.filter {
+  padding: 9px 14px;
+  border: 1px solid #34344b;
+  border-radius: 30px;
+  background: transparent;
+  color: #d3d2e6;
+  cursor: pointer;
+  transition:
+    color 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.filter:hover {
+  transform: translateY(-2px);
+  border-color: #a78bfa;
+}
+
+.filter.active {
+  background: #b9a4ff;
+  color: #130c20;
+  border-color: #b9a4ff;
+}
+
+/* ===== DISCOVERY CARDS ===== */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
 .card {
   position: relative;
-  transition: transform .4s ease, border-color .4s ease,
-              box-shadow .4s ease;
+  min-width: 0;
+  background: #121527;
+  border: 1px solid #292b43;
+  border-radius: 12px;
+  overflow: hidden;
+  transition:
+    transform 0.4s ease,
+    border-color 0.4s ease,
+    box-shadow 0.4s ease;
 }
 
 .card img {
-  transition: transform .7s cubic-bezier(.2,.7,.2,1),
-              filter .5s ease;
+  width: 100%;
+  height: 170px;
+  display: block;
+  object-fit: cover;
+  background: #17182c;
+  transition:
+    transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1),
+    filter 0.5s ease;
 }
 
 .card:hover {
@@ -194,80 +333,134 @@ body::after {
   filter: brightness(1.12);
 }
 
-/* Filter transitions */
-.filter {
-  transition: color .25s ease, background .25s ease,
-              border-color .25s ease, transform .25s ease;
+.content {
+  padding: 18px;
 }
 
-.filter:hover {
-  transform: translateY(-2px);
-  border-color: #a78bfa;
+.type {
+  font-size: 12px;
+  color: #c4b5fd;
 }
 
-/* Space facts glow */
+h3 {
+  font-size: 22px;
+  margin: 12px 0;
+}
+
+.content p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #b5b7cd;
+}
+
+.more {
+  background: none;
+  border: 0;
+  color: #c4b5fd;
+  font-weight: bold;
+  padding: 8px 0;
+  cursor: pointer;
+}
+
+/* ===== DAILY DISCOVERY ===== */
+
+.discovery {
+  text-align: center;
+  background:
+    radial-gradient(ellipse at center, #35245488, transparent 70%);
+}
+
+.discovery p {
+  max-width: 600px;
+  margin: 20px auto;
+  color: #b5b7cd;
+  line-height: 1.8;
+}
+
+/* ===== SPACE FACTS ===== */
+
 .fact {
-  transition: border-color .3s ease, box-shadow .3s ease;
+  margin: 25px auto 0;
+  max-width: 650px;
+  border: 1px solid #34304e;
+  background: #141528;
+  border-radius: 14px;
+  padding: 28px;
+  transition: border-color 0.3s, box-shadow 0.3s;
 }
 
 .fact:hover {
   border-color: #8b5cf6;
-  box-shadow: 0 0 35px #8b5cf615;
+  box-shadow: 0 0 35px #7c3aed15;
+}
+
+.fact p {
+  font-size: 20px;
+  line-height: 1.7;
 }
 
 #factText {
-  animation: factAppear .45s ease;
+  animation: factAppear 0.45s ease;
 }
 
-@keyframes factAppear {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+/* ===== MODAL ===== */
+
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  background: #000d;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
 }
 
-/* Animated detail popup */
+.modal.show {
+  display: flex;
+}
+
+.modal-box {
+  position: relative;
+  background: #15172a;
+  border: 1px solid #44405e;
+  border-radius: 14px;
+  padding: 24px;
+  max-width: 500px;
+  width: 100%;
+  max-height: 85vh;
+  overflow: auto;
+}
+
+.modal-box img {
+  width: 100%;
+  max-height: 240px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
 .modal.show .modal-box {
-  animation: modalEnter .35s cubic-bezier(.2,.8,.2,1) both;
+  animation: modalEnter 0.35s cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }
 
-@keyframes modalEnter {
-  from {
-    opacity: 0;
-    transform: translateY(22px) scale(.96);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
+.close {
+  position: absolute;
+  right: 18px;
+  top: 18px;
+  background: #080a14;
+  color: white;
+  border: 0;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
 }
 
-/* Scroll reveal: enabled by JavaScript below */
-.reveal-ready .reveal {
-  opacity: 0;
-  transform: translateY(25px);
-  transition: opacity .7s ease, transform .7s ease;
+#detailText {
+  color: #c2c3d5;
+  line-height: 1.8;
 }
 
-.reveal-ready .reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Respect visitors who prefer less motion */
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: .01ms !important;
-    animation-iteration-count: 1 !important;
-    scroll-behavior: auto !important;
-    transition-duration: .01ms !important;
-  }
-
-  .reveal-ready .reveal {
-    opacity: 1;
-    transform: none;
-  }
-}
-
-/* ===== INTERACTIVE SOLAR SYSTEM ===== */
+/* ===== SOLAR SYSTEM ===== */
 
 .solar-section {
   overflow: hidden;
@@ -290,18 +483,22 @@ body::after {
   position: relative;
   margin: auto;
   border-radius: 50%;
+  isolation: isolate;
   background-image:
     radial-gradient(1px 1px at 12% 23%, white 99%, transparent),
     radial-gradient(2px 2px at 70% 16%, #c4b5fd 99%, transparent),
     radial-gradient(1px 1px at 83% 73%, white 99%, transparent),
     radial-gradient(1px 1px at 30% 80%, #93c5fd 99%, transparent);
-  background-size: 150px 150px, 180px 180px,
-                   130px 130px, 210px 210px;
+  background-size:
+    150px 150px,
+    180px 180px,
+    130px 130px,
+    210px 210px;
 }
 
 .sun-core {
   position: absolute;
-  z-index: 3;
+  z-index: 1;
   width: 11%;
   aspect-ratio: 1;
   left: 50%;
@@ -314,6 +511,7 @@ body::after {
   color: #ffe8a3;
   background: radial-gradient(circle, #fff8cf 0%, #ffb72e 48%, #f97316 75%);
   box-shadow: 0 0 22px #ffb72e, 0 0 65px #f9731677;
+  pointer-events: none;
   animation: sunPulse 3s ease-in-out infinite alternate;
 }
 
@@ -323,6 +521,11 @@ body::after {
   }
 }
 
+/*
+  IMPORTANT CLICK FIX:
+  Orbital rings are visual only.
+  They must never capture touches intended for planets.
+*/
 .orbit-path {
   position: absolute;
   left: 50%;
@@ -330,6 +533,7 @@ body::after {
   border: 1px solid #9d8bc533;
   border-radius: 50%;
   transform: translate(-50%, -50%);
+  pointer-events: none;
   animation: orbitSpin var(--duration) linear infinite;
 }
 
@@ -347,35 +551,76 @@ body::after {
 .orbit-uranus  { width: 86%; height: 86%; --duration: 46s; }
 .orbit-neptune { width: 98%; height: 98%; --duration: 58s; }
 
+/* Every planet button gets its own touch target */
 .solar-planet {
   position: absolute;
   top: 0;
   left: 50%;
+  z-index: 5;
   transform: translate(-50%, -50%);
-  width: clamp(8px, 2.1vw, 15px);
+  width: clamp(12px, 2.6vw, 18px);
+  min-width: 12px;
+  min-height: 12px;
   aspect-ratio: 1;
-  border: 0;
+  border: 2px solid #ffffff33;
   border-radius: 50%;
   padding: 0;
   cursor: pointer;
+  pointer-events: auto;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
   box-shadow: 0 0 12px #ffffff33;
-  transition: box-shadow .25s, scale .25s;
+  transition: box-shadow 0.25s, scale 0.25s;
 }
 
 .solar-planet:hover,
 .solar-planet:focus-visible {
-  scale: 1.65;
+  scale: 1.45;
   box-shadow: 0 0 20px #ffffffaa;
   outline: 2px solid #c4b5fd;
   outline-offset: 3px;
 }
 
-.mercury { background: #a8a29e; }
-.venus { background: linear-gradient(135deg, #ffe0a3, #b77942); }
-.earth { background: radial-gradient(circle at 30% 30%, #93c5fd, #2563eb 55%, #166534); }
-.mars { background: linear-gradient(135deg, #fca58a, #b93824); }
-.jupiter { width: clamp(16px, 3.5vw, 27px); background: repeating-linear-gradient(0deg, #b87e56 0 3px, #f5d4a5 3px 6px); }
-.saturn { width: clamp(17px, 3.5vw, 27px); background: #e6c99a; }
+.solar-planet span {
+  pointer-events: none;
+}
+
+.mercury {
+  background: linear-gradient(135deg, #d6d3d1, #78716c);
+}
+
+.venus {
+  background: linear-gradient(135deg, #ffe0a3, #b77942);
+}
+
+.earth {
+  background: radial-gradient(circle at 30% 30%, #93c5fd, #2563eb 55%, #166534);
+}
+
+.mars {
+  background: linear-gradient(135deg, #fca58a, #b93824);
+}
+
+.jupiter {
+  width: clamp(20px, 4vw, 29px);
+  height: auto;
+  min-height: 20px;
+  aspect-ratio: 1.2;
+  background: repeating-linear-gradient(
+    0deg,
+    #b87e56 0 3px,
+    #f5d4a5 3px 6px
+  );
+}
+
+.saturn {
+  width: clamp(18px, 3.7vw, 27px);
+  height: auto;
+  min-height: 18px;
+  aspect-ratio: 1;
+  background: #e6c99a;
+}
+
 .saturn span {
   position: absolute;
   width: 180%;
@@ -386,8 +631,14 @@ body::after {
   border-radius: 50%;
   transform: rotate(-25deg);
 }
-.uranus { background: #7dd3fc; }
-.neptune { background: radial-gradient(circle at 30% 30%, #60a5fa, #1d4ed8); }
+
+.uranus {
+  background: #7dd3fc;
+}
+
+.neptune {
+  background: radial-gradient(circle at 30% 30%, #60a5fa, #1d4ed8);
+}
 
 .solar-hint {
   text-align: center;
@@ -450,21 +701,153 @@ body::after {
   padding-left: 14px;
 }
 
-@media (max-width: 450px) {
-  .solar-stage { padding: 15px 0; }
-  .solar-space { width: 100%; }
-  .planet-info { padding: 20px 15px; }
-  .planet-stats { gap: 6px; }
-  .planet-stats div { padding: 10px 7px; }
-  .planet-stats span { font-size: 10px; }
-  .planet-stats strong { font-size: 11px; }
+/* ===== SCROLL REVEAL ===== */
+
+.reveal-ready .reveal {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .orbit-path, .sun-core {
-    animation: none !important;
+.reveal-ready .reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
+
+@keyframes factAppear {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes modalEnter {
+  from {
+    opacity: 0;
+    transform: translateY(22px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ===== FOOTER ===== */
+
+footer {
+  text-align: center;
+  padding: 35px 15px;
+  border-top: 1px solid #292b43;
+  color: #b5b7cd;
+  font-size: 13px;
+}
+
+footer .logo {
+  display: inline-block;
+  margin-bottom: 15px;
+}
+
+/* ===== RESPONSIVE LAYOUT ===== */
+
+@media (max-width: 700px) {
+  .nav {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .links {
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+
+  .hero {
+    padding: 60px 7%;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .card img {
+    height: 140px;
+  }
+}
+
+@media (max-width: 450px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card img {
+    height: 200px;
+  }
+
+  .section {
+    padding: 45px 5%;
+  }
+
+  h2 {
+    font-size: 28px;
+  }
+
+  .solar-stage {
+    padding: 15px 0;
+  }
+
+  .solar-space {
+    width: 100%;
+  }
+
+  .planet-info {
+    padding: 20px 15px;
+  }
+
+  .planet-stats {
+    gap: 6px;
+  }
+
+  .planet-stats div {
+    padding: 10px 7px;
+  }
+
+  .planet-stats span {
+    font-size: 10px;
+  }
+
+  .planet-stats strong {
+    font-size: 11px;
+  }
+}
+
+/* ===== ACCESSIBILITY ===== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .reveal-ready .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+
+    
 
   </style>
 </head>
@@ -617,155 +1000,201 @@ body::after {
   </footer>
 
   <script>
-    const objects = [
-      {name:"Earth",type:"Planets",icon:"🌍",image:"https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?w=700",description:"Our home planet has liquid water, a protective atmosphere and a remarkable diversity of life."},
-      {name:"Mars",type:"Planets",icon:"🔴",image:"https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?w=700",description:"The Red Planet has enormous volcanoes, ancient river valleys and evidence of past water."},
-      {name:"Saturn",type:"Planets",icon:"🪐",image:"https://images.unsplash.com/photo-1614732484003-ef9881555dc3?w=700",description:"A gas giant surrounded by spectacular rings made mainly of ice and rocky particles."},
-      {name:"The Sun",type:"Stars",icon:"☀️",image:"https://images.unsplash.com/photo-1614642264762-d0a3b8bf3700?w=700",description:"Our star generates energy through nuclear fusion and dominates the solar system's gravity."},
-      {name:"Milky Way",type:"Galaxies",icon:"🌌",image:"https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=700",description:"Our home galaxy contains hundreds of billions of stars, including our Sun."},
-      {name:"Andromeda",type:"Galaxies",icon:"✨",image:"https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=700",description:"Andromeda is a large neighboring galaxy approximately 2.5 million light-years away."},
-      {name:"Black Hole",type:"Black Holes",icon:"🕳️",image:"https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=700",description:"A region of spacetime where gravity is so strong that light cannot escape from inside its event horizon."}
-    ];
+    
+      
 
-    const facts = [
-      "Sunlight takes about 8 minutes and 20 seconds to reach Earth.",
-      "Venus rotates so slowly that its sidereal day is longer than its year.",
-      "The Milky Way is estimated to contain hundreds of billions of stars.",
-      "A teaspoon of neutron-star material would have an enormous mass on Earth.",
-      "There are more galaxies in the observable universe than we can see with the naked eye."
-    ];
+/* ===== MY UNIVERSE: COMPLETE JAVASCRIPT ===== */
 
-    let activeType = "All";
-    let factIndex = 0;
-    const grid = document.getElementById("grid");
-    const search = document.getElementById("search");
+const objects = [
+  {
+    name: "Earth",
+    type: "Planets",
+    icon: "🌍",
+    image: "https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?w=700",
+    description: "Our home world has liquid water, a protective atmosphere and a remarkable diversity of life."
+  },
+  {
+    name: "Mars",
+    type: "Planets",
+    icon: "🔴",
+    image: "https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?w=700",
+    description: "The Red Planet has enormous volcanoes, ancient river valleys and evidence of past water."
+  },
+  {
+    name: "Saturn",
+    type: "Planets",
+    icon: "🪐",
+    image: "https://images.unsplash.com/photo-1614732484003-ef9881555dc3?w=700",
+    description: "A gas giant famous for its spectacular rings of ice and rocky particles."
+  },
+  {
+    name: "The Sun",
+    type: "Stars",
+    icon: "☀️",
+    image: "https://images.unsplash.com/photo-1614642264762-d0a3b8bf3700?w=700",
+    description: "Our star generates energy through nuclear fusion and dominates the solar system's gravity."
+  },
+  {
+    name: "Milky Way",
+    type: "Galaxies",
+    icon: "🌌",
+    image: "https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=700",
+    description: "Our home galaxy contains hundreds of billions of stars, including our Sun."
+  },
+  {
+    name: "Andromeda",
+    type: "Galaxies",
+    icon: "✨",
+    image: "https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=700",
+    description: "Andromeda is a large neighboring galaxy approximately 2.5 million light-years away."
+  },
+  {
+    name: "Black Hole",
+    type: "Black Holes",
+    icon: "🕳️",
+    image: "https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=700",
+    description: "A region of spacetime where gravity is so strong that light cannot escape from inside its event horizon."
+  }
+];
 
-    function render() {
-      const term = search.value.toLowerCase().trim();
-      const filtered = objects.filter(o =>
-        (activeType === "All" || o.type === activeType) &&
-        (o.name + " " + o.type + " " + o.description).toLowerCase().includes(term)
-      );
+const facts = [
+  "Sunlight takes about 8 minutes and 20 seconds to reach Earth.",
+  "Venus rotates so slowly that its sidereal day is longer than its year.",
+  "The Milky Way contains hundreds of billions of stars.",
+  "Neutron stars can pack more mass than the Sun into a city-sized sphere.",
+  "Neptune takes about 165 Earth years to orbit the Sun."
+];
 
-      document.getElementById("count").textContent = filtered.length + " discoveries";
-      grid.innerHTML = "";
+/* ===== DISCOVERY SEARCH AND FILTERS ===== */
 
-      filtered.forEach(o => {
-        const card = document.createElement("article");
-        card.className = "card";
+let activeType = "All";
+let factIndex = 0;
 
-        const img = document.createElement("img");
-        img.src = o.image;
-        img.alt = o.name;
-        img.loading = "lazy";
+const grid = document.getElementById("grid");
+const search = document.getElementById("search");
 
-        const content = document.createElement("div");
-        content.className = "content";
+function renderObjects() {
+  if (!grid || !search) return;
 
-        const type = document.createElement("span");
-        type.className = "type";
-        type.textContent = o.icon + " " + o.type;
+  const term = search.value.toLowerCase().trim();
 
-        const title = document.createElement("h3");
-        title.textContent = o.name;
+  const filtered = objects.filter(object => {
+    const matchesType =
+      activeType === "All" || object.type === activeType;
 
-        const desc = document.createElement("p");
-        desc.textContent = o.description;
+    const searchable =
+      `${object.name} ${object.type} ${object.description}`
+        .toLowerCase();
 
-        const more = document.createElement("button");
-        more.className = "more";
-        more.textContent = "Discover more ↗";
-        more.addEventListener("click", () => showDetails(o));
-
-        content.append(type, title, desc, more);
-        card.append(img, content);
-        grid.append(card);
-      });
-
-      if (!filtered.length) {
-        grid.textContent = "No discoveries found. Try another search.";
-      }
-    }
-
-    function showDetails(o) {
-      document.getElementById("detailImage").src = o.image;
-      document.getElementById("detailImage").alt = o.name;
-      document.getElementById("detailType").textContent = o.icon + " " + o.type;
-      document.getElementById("detailTitle").textContent = o.name;
-      document.getElementById("detailText").textContent = o.description;
-      document.getElementById("modal").classList.add("show");
-    }
-
-    function closeDetails() {
-      document.getElementById("modal").classList.remove("show");
-    }
-
-    search.addEventListener("input", render);
-
-    document.querySelectorAll(".filter").forEach(btn => {
-      btn.addEventListener("click", () => {
-        activeType = btn.dataset.type;
-        document.querySelectorAll(".filter").forEach(b =>
-          b.classList.toggle("active", b === btn)
-        );
-        render();
-      });
-    });
-
-    document.getElementById("nextFact").addEventListener("click", () => {
-      factIndex = (factIndex + 1) % facts.length;
-      document.getElementById("factText").textContent = facts[factIndex];
-    });
-
-    document.getElementById("closeModal").addEventListener("click", closeDetails);
-    document.getElementById("modal").addEventListener("click", e => {
-      if (e.target.id === "modal") closeDetails();
-    });
-    document.addEventListener("keydown", e => {
-      if (e.key === "Escape") closeDetails();
-    });
-
-    render();
-
-
-/* ===== SCROLL REVEAL ANIMATIONS ===== */
-
-document.documentElement.classList.add("reveal-ready");
-
-const revealElements = document.querySelectorAll(
-  ".section, .card"
-);
-
-revealElements.forEach((element, index) => {
-  element.classList.add("reveal");
-  element.style.transitionDelay =
-    `${Math.min(index % 3, 2) * 100}ms`;
-});
-
-if ("IntersectionObserver" in window) {
-  const revealObserver = new IntersectionObserver(
-    entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.08 }
-  );
-
-  revealElements.forEach(element => {
-    revealObserver.observe(element);
+    return matchesType && searchable.includes(term);
   });
-} else {
-  revealElements.forEach(element => {
-    element.classList.add("visible");
+
+  document.getElementById("count").textContent =
+    `${filtered.length} discoveries`;
+
+  grid.replaceChildren();
+
+  filtered.forEach(object => {
+    const card = document.createElement("article");
+    card.className = "card";
+
+    const image = document.createElement("img");
+    image.src = object.image;
+    image.alt = object.name;
+    image.loading = "lazy";
+
+    const content = document.createElement("div");
+    content.className = "content";
+
+    const type = document.createElement("span");
+    type.className = "type";
+    type.textContent = `${object.icon} ${object.type}`;
+
+    const title = document.createElement("h3");
+    title.textContent = object.name;
+
+    const description = document.createElement("p");
+    description.textContent = object.description;
+
+    const more = document.createElement("button");
+    more.className = "more";
+    more.textContent = "Discover more ↗";
+    more.addEventListener("click", () => showDetails(object));
+
+    content.append(type, title, description, more);
+    card.append(image, content);
+    grid.append(card);
   });
+
+  if (filtered.length === 0) {
+    const empty = document.createElement("p");
+    empty.textContent = "No discoveries found. Try another search.";
+    empty.style.color = "#b5b7cd";
+    grid.append(empty);
+  }
 }
 
+search?.addEventListener("input", renderObjects);
 
-/* ===== PLANET DATA AND INTERACTIONS ===== */
+document.querySelectorAll(".filter").forEach(button => {
+  button.addEventListener("click", () => {
+    activeType = button.dataset.type;
+
+    document.querySelectorAll(".filter").forEach(filter => {
+      filter.classList.toggle("active", filter === button);
+    });
+
+    renderObjects();
+  });
+});
+
+/* ===== DISCOVERY DETAIL MODAL ===== */
+
+function showDetails(object) {
+  const modal = document.getElementById("modal");
+
+  document.getElementById("detailImage").src = object.image;
+  document.getElementById("detailImage").alt = object.name;
+  document.getElementById("detailTitle").textContent = object.name;
+  document.getElementById("detailType").textContent =
+    `${object.icon} ${object.type}`;
+  document.getElementById("detailText").textContent =
+    object.description;
+
+  modal.classList.add("show");
+}
+
+function closeDetails() {
+  document.getElementById("modal")?.classList.remove("show");
+}
+
+document.getElementById("closeModal")
+  ?.addEventListener("click", closeDetails);
+
+document.getElementById("modal")
+  ?.addEventListener("click", event => {
+    if (event.target.id === "modal") closeDetails();
+  });
+
+document.addEventListener("keydown", event => {
+  if (event.key === "Escape") closeDetails();
+});
+
+/* ===== SPACE FACTS ===== */
+
+document.getElementById("nextFact")
+  ?.addEventListener("click", () => {
+    factIndex = (factIndex + 1) % facts.length;
+
+    const factText = document.getElementById("factText");
+    factText.textContent = facts[factIndex];
+
+    factText.style.animation = "none";
+    void factText.offsetWidth;
+    factText.style.animation = "factAppear 0.45s ease";
+  });
+
+/* ===== SOLAR SYSTEM PLANET DATA ===== */
 
 const planetData = {
   Mercury: {
@@ -801,7 +1230,7 @@ const planetData = {
     distance: "778.6 million km",
     year: "11.86 Earth years",
     description: "The largest planet, a gas giant with powerful storms and many moons.",
-    extra: "Jupiter's Great Red Spot is a giant storm that has been observed for centuries."
+    extra: "Jupiter's Great Red Spot is a giant storm observed for centuries."
   },
   Saturn: {
     diameter: "116,460 km",
@@ -821,54 +1250,105 @@ const planetData = {
     diameter: "49,244 km",
     distance: "4.50 billion km",
     year: "165 Earth years",
-    description: "A distant ice giant with a deep blue appearance and extremely fast winds.",
+    description: "A distant ice giant with a blue appearance and extremely fast winds.",
     extra: "Neptune takes about 165 Earth years to complete one orbit around the Sun."
   }
 };
+
+/* ===== SAFE PLANET SELECTION ===== */
 
 function selectPlanet(name) {
   const data = planetData[name];
   if (!data) return;
 
-  document.getElementById("planetName").textContent = name;
-  document.getElementById("planetType").textContent =
-    "SOLAR SYSTEM / " + name.toUpperCase();
-  document.getElementById("planetDescription").textContent =
-    data.description;
-  document.getElementById("planetDiameter").textContent =
-    data.diameter;
-  document.getElementById("planetDistance").textContent =
-    data.distance;
-  document.getElementById("planetYear").textContent =
-    data.year;
-  document.getElementById("planetExtra").textContent =
-    data.extra;
+  const setText = (id, value) => {
+    const element = document.getElementById(id);
+    if (element) element.textContent = value;
+  };
+
+  setText("planetName", name);
+  setText("planetType", `SOLAR SYSTEM / ${name.toUpperCase()}`);
+  setText("planetDescription", data.description);
+  setText("planetDiameter", data.diameter);
+  setText("planetDistance", data.distance);
+  setText("planetYear", data.year);
+  setText("planetExtra", data.extra);
 
   document.querySelectorAll(".solar-planet").forEach(button => {
-    button.setAttribute(
-      "aria-pressed",
-      String(button.dataset.planet === name)
-    );
+    const selected = button.dataset.planet === name;
+
+    button.setAttribute("aria-pressed", String(selected));
+
+    if (selected) {
+      button.style.boxShadow = "0 0 20px #ffffffaa";
+    } else {
+      button.style.boxShadow = "";
+    }
   });
 
   const panel = document.getElementById("planetInfo");
-  panel.animate(
-    [
-      { opacity: 0.65, transform: "translateY(8px)" },
-      { opacity: 1, transform: "translateY(0)" }
-    ],
-    { duration: 300, easing: "ease-out" }
-  );
+
+  if (panel && typeof panel.animate === "function") {
+    panel.animate(
+      [
+        { opacity: 0.65, transform: "translateY(8px)" },
+        { opacity: 1, transform: "translateY(0)" }
+      ],
+      { duration: 300, easing: "ease-out" }
+    );
+  }
 }
 
+/*
+  ONE listener per planet button.
+  The orbit rings have pointer-events:none in CSS.
+*/
 document.querySelectorAll(".solar-planet").forEach(button => {
-  button.addEventListener("click", () => {
+  button.addEventListener("click", event => {
+    event.preventDefault();
+    event.stopPropagation();
+
     selectPlanet(button.dataset.planet);
   });
 });
 
-selectPlanet("Earth");
+/* ===== SCROLL REVEAL ANIMATIONS ===== */
 
+const revealElements = document.querySelectorAll(
+  ".section, .card"
+);
+
+const reducedMotion = window.matchMedia(
+  "(prefers-reduced-motion: reduce)"
+).matches;
+
+if ("IntersectionObserver" in window && !reducedMotion) {
+  document.documentElement.classList.add("reveal-ready");
+
+  revealElements.forEach((element, index) => {
+    element.classList.add("reveal");
+    element.style.transitionDelay =
+      `${(index % 3) * 100}ms`;
+  });
+
+  const revealObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+
+  revealElements.forEach(element => {
+    revealObserver.observe(element);
+  });
+}
+
+/* ===== INITIALIZE WEBSITE ===== */
+
+renderObjects();
+selectPlanet("Earth");
 
   </script>
 </body>
