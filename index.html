@@ -49,6 +49,224 @@
     #detailText{color:#c2c3d5;line-height:1.8}
     @media(max-width:700px){.nav{align-items:flex-start;flex-direction:column}.links{flex-wrap:wrap;gap:14px}.hero{padding:60px 7%}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.card img{height:140px}}
     @media(max-width:450px){.grid{grid-template-columns:1fr}.card img{height:200px}.section{padding:45px 5%}h2{font-size:28px}}
+
+
+/* ===== MY UNIVERSE: COSMIC MOTION UPGRADE ===== */
+
+html {
+  background: #080a14;
+  scroll-behavior: smooth;
+}
+
+body {
+  position: relative;
+  isolation: isolate;
+  background:
+    radial-gradient(ellipse at 15% 20%, #32205b35, transparent 45%),
+    radial-gradient(ellipse at 85% 60%, #153c6c30, transparent 45%),
+    #080a14;
+}
+
+/* Animated starfield */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    radial-gradient(1px 1px at 10% 20%, #ffffffcc 99%, transparent),
+    radial-gradient(2px 2px at 35% 70%, #c4b5fdcc 99%, transparent),
+    radial-gradient(1px 1px at 75% 30%, #ffffffcc 99%, transparent),
+    radial-gradient(2px 2px at 90% 80%, #93c5fdcc 99%, transparent),
+    radial-gradient(1px 1px at 50% 45%, #ffffffcc 99%, transparent),
+    radial-gradient(1px 1px at 20% 85%, #c4b5fdcc 99%, transparent);
+  background-size: 260px 260px, 340px 340px, 210px 210px,
+    300px 300px, 180px 180px, 250px 250px;
+  animation: starDrift 80s linear infinite,
+             starTwinkle 4s ease-in-out infinite alternate;
+}
+
+@keyframes starDrift {
+  from { background-position: 0 0; }
+  to { background-position: 260px 520px; }
+}
+
+@keyframes starTwinkle {
+  from { opacity: .45; }
+  to { opacity: 1; }
+}
+
+/* Shooting star */
+body::after {
+  content: "";
+  position: fixed;
+  top: 12%;
+  left: 70%;
+  width: 120px;
+  height: 2px;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, #b9a4ff, white);
+  box-shadow: 0 0 12px #a78bfa;
+  opacity: 0;
+  transform: rotate(-35deg);
+  animation: shootingStar 9s ease-in-out infinite;
+}
+
+@keyframes shootingStar {
+  0%, 72%, 100% {
+    opacity: 0;
+    transform: translate(100px, -50px) rotate(-35deg);
+  }
+  74% { opacity: 1; }
+  82% {
+    opacity: 0;
+    transform: translate(-250px, 180px) rotate(-35deg);
+  }
+}
+
+/* Cinematic hero entrance */
+.hero .tag {
+  animation: fadeUp .9s ease both;
+}
+
+.hero h1 {
+  animation: fadeUp 1s .12s ease both;
+}
+
+.hero > p {
+  animation: fadeUp 1s .25s ease both;
+}
+
+.hero .btn {
+  animation: fadeUp 1s .4s ease both;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Glowing buttons */
+.btn {
+  box-shadow: 0 0 0 rgba(185, 164, 255, 0);
+  transition: transform .3s ease, box-shadow .3s ease,
+              background .3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 25px #a78bfa65;
+  background: #d0c2ff;
+}
+
+.btn:active {
+  transform: scale(.97);
+}
+
+/* Floating, glowing discovery cards */
+.card {
+  position: relative;
+  transition: transform .4s ease, border-color .4s ease,
+              box-shadow .4s ease;
+}
+
+.card img {
+  transition: transform .7s cubic-bezier(.2,.7,.2,1),
+              filter .5s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  border-color: #a78bfa;
+  box-shadow: 0 12px 35px #7c3aed20;
+}
+
+.card:hover img {
+  transform: scale(1.07);
+  filter: brightness(1.12);
+}
+
+/* Filter transitions */
+.filter {
+  transition: color .25s ease, background .25s ease,
+              border-color .25s ease, transform .25s ease;
+}
+
+.filter:hover {
+  transform: translateY(-2px);
+  border-color: #a78bfa;
+}
+
+/* Space facts glow */
+.fact {
+  transition: border-color .3s ease, box-shadow .3s ease;
+}
+
+.fact:hover {
+  border-color: #8b5cf6;
+  box-shadow: 0 0 35px #8b5cf615;
+}
+
+#factText {
+  animation: factAppear .45s ease;
+}
+
+@keyframes factAppear {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Animated detail popup */
+.modal.show .modal-box {
+  animation: modalEnter .35s cubic-bezier(.2,.8,.2,1) both;
+}
+
+@keyframes modalEnter {
+  from {
+    opacity: 0;
+    transform: translateY(22px) scale(.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Scroll reveal: enabled by JavaScript below */
+.reveal-ready .reveal {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+
+.reveal-ready .reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Respect visitors who prefer less motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
+
+  .reveal-ready .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
   </style>
 </head>
 <body>
@@ -230,6 +448,44 @@
     });
 
     render();
+
+
+/* ===== SCROLL REVEAL ANIMATIONS ===== */
+
+document.documentElement.classList.add("reveal-ready");
+
+const revealElements = document.querySelectorAll(
+  ".section, .card"
+);
+
+revealElements.forEach((element, index) => {
+  element.classList.add("reveal");
+  element.style.transitionDelay =
+    `${Math.min(index % 3, 2) * 100}ms`;
+});
+
+if ("IntersectionObserver" in window) {
+  const revealObserver = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.08 }
+  );
+
+  revealElements.forEach(element => {
+    revealObserver.observe(element);
+  });
+} else {
+  revealElements.forEach(element => {
+    element.classList.add("visible");
+  });
+}
+
   </script>
 </body>
 </html>
