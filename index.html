@@ -1,0 +1,235 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080a14">
+  <meta name="description" content="Explore planets, stars, galaxies and the mysteries of our universe.">
+  <title>My Universe | Explore the Cosmos</title>
+  <style>
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:#080a14;color:#f4f3ff;font-family:Arial,sans-serif}
+    a{color:inherit;text-decoration:none}
+    button,input{font:inherit}
+    .nav{display:flex;justify-content:space-between;align-items:center;gap:15px;padding:20px 7%;border-bottom:1px solid #24263a}
+    .logo{font-size:19px;font-weight:bold;letter-spacing:2px;color:#c4b5fd}
+    .links{display:flex;gap:18px;font-size:13px;color:#c2c3d5}
+    .hero{padding:80px 8%;min-height:440px;background:radial-gradient(ellipse at 80% 40%,#4c328a66,transparent 45%),radial-gradient(ellipse at 20% 80%,#153b7066,transparent 45%)}
+    .tag{color:#b9a4ff;font-size:11px;letter-spacing:2px;font-weight:bold}
+    h1{font-size:clamp(42px,8vw,76px);line-height:1.05;letter-spacing:-2px;margin:22px 0}
+    h1 span{color:#b9a4ff}
+    .hero p,.section-intro{color:#b5b7cd;line-height:1.8;max-width:550px}
+    .btn{display:inline-block;background:#b9a4ff;color:#110b20;padding:13px 18px;border:0;border-radius:8px;font-weight:bold;cursor:pointer;margin-top:12px}
+    .section{padding:60px 7%;max-width:1200px;margin:auto}
+    h2{font-size:32px;margin:12px 0}
+    .search{width:100%;padding:15px;border-radius:9px;border:1px solid #30314a;background:#121527;color:white;margin:20px 0}
+    .filters{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:25px}
+    .filter{padding:9px 14px;border:1px solid #34344b;border-radius:30px;background:transparent;color:#d3d2e6;cursor:pointer}
+    .filter.active{background:#b9a4ff;color:#130c20}
+    .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+    .card{background:#121527;border:1px solid #292b43;border-radius:12px;overflow:hidden}
+    .card img{width:100%;height:170px;object-fit:cover;background:#17182c}
+    .content{padding:18px}
+    .type{font-size:12px;color:#c4b5fd}
+    h3{font-size:22px;margin:12px 0}
+    .content p{font-size:14px;line-height:1.7;color:#b5b7cd}
+    .more{background:none;border:0;color:#c4b5fd;font-weight:bold;padding:8px 0;cursor:pointer}
+    .discovery{text-align:center;background:radial-gradient(ellipse at center,#35245488,transparent 70%)}
+    .discovery p{max-width:600px;margin:20px auto;color:#b5b7cd;line-height:1.8}
+    .fact{margin:25px auto 0;max-width:650px;border:1px solid #34304e;background:#141528;border-radius:14px;padding:28px}
+    .fact p{font-size:20px;line-height:1.7}
+    footer{text-align:center;padding:35px 15px;border-top:1px solid #292b43;color:#b5b7cd;font-size:13px}
+    .modal{display:none;position:fixed;inset:0;background:#000d;z-index:5;align-items:center;justify-content:center;padding:20px}
+    .modal.show{display:flex}
+    .modal-box{position:relative;background:#15172a;border:1px solid #44405e;border-radius:14px;padding:24px;max-width:500px;width:100%;max-height:85vh;overflow:auto}
+    .modal-box img{width:100%;max-height:240px;object-fit:cover;border-radius:8px}
+    .close{position:absolute;right:18px;top:18px;background:#080a14;color:white;border:0;padding:10px;border-radius:8px;cursor:pointer}
+    #detailText{color:#c2c3d5;line-height:1.8}
+    @media(max-width:700px){.nav{align-items:flex-start;flex-direction:column}.links{flex-wrap:wrap;gap:14px}.hero{padding:60px 7%}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.card img{height:140px}}
+    @media(max-width:450px){.grid{grid-template-columns:1fr}.card img{height:200px}.section{padding:45px 5%}h2{font-size:28px}}
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <a class="logo" href="#home">✦ MY UNIVERSE</a>
+    <div class="links">
+      <a href="#explore">Explore</a>
+      <a href="#daily">NASA Picture</a>
+      <a href="#facts">Space Facts</a>
+    </div>
+  </nav>
+
+  <header class="hero" id="home">
+    <span class="tag">YOUR COSMIC JOURNEY STARTS HERE</span>
+    <h1>Explore the<br><span>infinite universe.</span></h1>
+    <p>Discover distant worlds, brilliant stars and the mysteries of space. One universe, endless things to learn.</p>
+    <a class="btn" href="#explore">Start exploring ↗</a>
+    <p>✦ Curiosity has no boundaries</p>
+  </header>
+
+  <main>
+    <section class="section" id="explore">
+      <span class="tag">THE COSMOS IS CALLING</span>
+      <h2>Explore the universe</h2>
+      <p class="section-intro">Search for celestial objects and discover what makes them special.</p>
+      <input id="search" class="search" placeholder="Search planets, stars, galaxies..." aria-label="Search space objects">
+      <div class="filters">
+        <button class="filter active" data-type="All">All</button>
+        <button class="filter" data-type="Planets">Planets</button>
+        <button class="filter" data-type="Stars">Stars</button>
+        <button class="filter" data-type="Galaxies">Galaxies</button>
+        <button class="filter" data-type="Black Holes">Black holes</button>
+      </div>
+      <p id="count" class="section-intro"></p>
+      <div id="grid" class="grid"></div>
+    </section>
+
+    <section class="section discovery" id="daily">
+      <span class="tag">LOOK UP AT THE SKY</span>
+      <h2>Daily cosmic discovery</h2>
+      <p>Explore real astronomical photographs, learn how they were captured, and discover the science behind the universe.</p>
+      <a class="btn" href="https://apod.nasa.gov/apod/astropix.html" target="_blank" rel="noopener">Explore NASA's Picture of the Day ↗</a>
+      <p>Live NASA image integration is the next development step.</p>
+    </section>
+
+    <section class="section" id="facts">
+      <span class="tag">DID YOU KNOW?</span>
+      <h2>Space facts</h2>
+      <div class="fact">
+        <p id="factText">Light from the Sun takes about 8 minutes and 20 seconds to reach Earth.</p>
+        <button class="btn" id="nextFact">Discover another fact ↗</button>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="detailTitle">
+    <div class="modal-box">
+      <button class="close" id="closeModal" aria-label="Close">✕</button>
+      <img id="detailImage" src="" alt="">
+      <p class="tag" id="detailType"></p>
+      <h2 id="detailTitle"></h2>
+      <p id="detailText"></p>
+    </div>
+  </div>
+
+  <footer>
+    <a class="logo" href="#home">✦ MY UNIVERSE</a>
+    <p>Built with curiosity and a love for space.</p>
+    <p>Educational project · Explore responsibly and verify scientific facts.</p>
+  </footer>
+
+  <script>
+    const objects = [
+      {name:"Earth",type:"Planets",icon:"🌍",image:"https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?w=700",description:"Our home planet has liquid water, a protective atmosphere and a remarkable diversity of life."},
+      {name:"Mars",type:"Planets",icon:"🔴",image:"https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?w=700",description:"The Red Planet has enormous volcanoes, ancient river valleys and evidence of past water."},
+      {name:"Saturn",type:"Planets",icon:"🪐",image:"https://images.unsplash.com/photo-1614732484003-ef9881555dc3?w=700",description:"A gas giant surrounded by spectacular rings made mainly of ice and rocky particles."},
+      {name:"The Sun",type:"Stars",icon:"☀️",image:"https://images.unsplash.com/photo-1614642264762-d0a3b8bf3700?w=700",description:"Our star generates energy through nuclear fusion and dominates the solar system's gravity."},
+      {name:"Milky Way",type:"Galaxies",icon:"🌌",image:"https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=700",description:"Our home galaxy contains hundreds of billions of stars, including our Sun."},
+      {name:"Andromeda",type:"Galaxies",icon:"✨",image:"https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=700",description:"Andromeda is a large neighboring galaxy approximately 2.5 million light-years away."},
+      {name:"Black Hole",type:"Black Holes",icon:"🕳️",image:"https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=700",description:"A region of spacetime where gravity is so strong that light cannot escape from inside its event horizon."}
+    ];
+
+    const facts = [
+      "Sunlight takes about 8 minutes and 20 seconds to reach Earth.",
+      "Venus rotates so slowly that its sidereal day is longer than its year.",
+      "The Milky Way is estimated to contain hundreds of billions of stars.",
+      "A teaspoon of neutron-star material would have an enormous mass on Earth.",
+      "There are more galaxies in the observable universe than we can see with the naked eye."
+    ];
+
+    let activeType = "All";
+    let factIndex = 0;
+    const grid = document.getElementById("grid");
+    const search = document.getElementById("search");
+
+    function render() {
+      const term = search.value.toLowerCase().trim();
+      const filtered = objects.filter(o =>
+        (activeType === "All" || o.type === activeType) &&
+        (o.name + " " + o.type + " " + o.description).toLowerCase().includes(term)
+      );
+
+      document.getElementById("count").textContent = filtered.length + " discoveries";
+      grid.innerHTML = "";
+
+      filtered.forEach(o => {
+        const card = document.createElement("article");
+        card.className = "card";
+
+        const img = document.createElement("img");
+        img.src = o.image;
+        img.alt = o.name;
+        img.loading = "lazy";
+
+        const content = document.createElement("div");
+        content.className = "content";
+
+        const type = document.createElement("span");
+        type.className = "type";
+        type.textContent = o.icon + " " + o.type;
+
+        const title = document.createElement("h3");
+        title.textContent = o.name;
+
+        const desc = document.createElement("p");
+        desc.textContent = o.description;
+
+        const more = document.createElement("button");
+        more.className = "more";
+        more.textContent = "Discover more ↗";
+        more.addEventListener("click", () => showDetails(o));
+
+        content.append(type, title, desc, more);
+        card.append(img, content);
+        grid.append(card);
+      });
+
+      if (!filtered.length) {
+        grid.textContent = "No discoveries found. Try another search.";
+      }
+    }
+
+    function showDetails(o) {
+      document.getElementById("detailImage").src = o.image;
+      document.getElementById("detailImage").alt = o.name;
+      document.getElementById("detailType").textContent = o.icon + " " + o.type;
+      document.getElementById("detailTitle").textContent = o.name;
+      document.getElementById("detailText").textContent = o.description;
+      document.getElementById("modal").classList.add("show");
+    }
+
+    function closeDetails() {
+      document.getElementById("modal").classList.remove("show");
+    }
+
+    search.addEventListener("input", render);
+
+    document.querySelectorAll(".filter").forEach(btn => {
+      btn.addEventListener("click", () => {
+        activeType = btn.dataset.type;
+        document.querySelectorAll(".filter").forEach(b =>
+          b.classList.toggle("active", b === btn)
+        );
+        render();
+      });
+    });
+
+    document.getElementById("nextFact").addEventListener("click", () => {
+      factIndex = (factIndex + 1) % facts.length;
+      document.getElementById("factText").textContent = facts[factIndex];
+    });
+
+    document.getElementById("closeModal").addEventListener("click", closeDetails);
+    document.getElementById("modal").addEventListener("click", e => {
+      if (e.target.id === "modal") closeDetails();
+    });
+    document.addEventListener("keydown", e => {
+      if (e.key === "Escape") closeDetails();
+    });
+
+    render();
+  </script>
+</body>
+</html>
